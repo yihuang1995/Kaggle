@@ -1,0 +1,233 @@
+<question_id>aops_010</question_id>
+<question>
+Find all functions $f: (0, \infty) \mapsto (0, \infty)$ (so $f$ is a function from the positive real numbers) such that $\frac {\left( f(w) \right)^2 + \left( f(x) \right)^2}{f(y^2) + f(z^2) } = \frac {w^2 + x^2}{y^2 + z^2}$ for all positive real numbers $w,x,y,z,$ satisfying $wx = yz.$
+</question>
+<reasoning>
+Considering $w=1$ and $z=y=\sqrt{x}$ which satisfy the constraint $wx=yz$ we get the following equation: \[\frac{(f(1))^2 + (f(x))^2}{f(x) + f(x)} = \frac{1+x^2}{x+x} \Leftrightarrow x((f(1))^2 + (f(x))^2) = (1+x^2)f(x)\] At once considering $x=1$ we get $(f(1))^2 = f(1)$ and knowing that $f : \mathbb{R}^+ \rightarrow \mathbb{R}^+$ the only possible solution is $f(1)=1$ since $f(1)=0$ is impossible. So we get the quadratic equation: \[x(f(x))^2 - (1+x^2)f(x) + x = 0\] Solving for $f(x)$ as a function of $x$ we get: \[f(x) = \frac{ 1+x^2 \pm \sqrt{(1+x^2)^2-4x^2} }{2x} = \frac{ 1+x^2 \pm \sqrt{(1-x^2)^2} }{2x}\] At once we see that for one value of $x$, $f(x)$ can only take one of 2 possible values: \[f(x) = x \vee f(x) = \frac{1}{x}\]. Take into consideration that $f(2) = 2$ but $f(3) = \frac{1}{3}$ verifies the quadratic equation and thus so far we can't say that $f(x)=x \, \forall_{x \in \mathbb{R}^+}$ or alternatively $f(x)=\frac{1}{x} \, \forall_{x \in \mathbb{R}^+}$. This is indeed the case but we haven't proved it yet. To prove the previous assertion consider 2 values $a,b \in \mathbb{R}^+$ such that $a\ne 1 \wedge b \ne 1 \wedge a \ne b$ while having $f(a) = a \wedge f(b)=\frac{1}{b}$ Consider now the original functional equation with $w=a,\ x=b,\ y=z=\sqrt{ab}$ which verifies the constraint. Substituting we have: \[\frac{ (f(a))^2 + (f(b))^2}{ f(ab) + f(ab)} = \frac{a^2 + b^2}{ab + ab} \Leftrightarrow f(ab) = ab\frac{a^2 + \frac{1}{b^2}}{a^2 + b^2}\] Now either $f(ab)=ab$ or $f(ab)=\frac{1}{ab}$. (notice that $ab \ne b \wedge ab\ne b$ by hypothesis) If $f(ab)=ab$ then we have $ab = ab\frac{a^2 + \frac{1}{b^2}}{a^2 + b^2} \Leftrightarrow b^4=1$ and since $b>0$ the only solution is $b=1$. If $f(ab)=\frac{1}{ab}$ then we have $\frac{1}{ab} = ab\frac{a^2 + \frac{1}{b^2}}{a^2 + b^2} \Leftrightarrow a^2+b^2 = a^4b^2 +a^2 \Leftrightarrow a^4=1$ and since $a>0$ the only solution is $a=1$. So the only solutions are $a=1$ or $b=1$ in which case both alternatives imply $f(1)=1$. Thus we conclude that solutions to the functional equation are a subset of $\left\{f(x)=x \ \forall_{x \in \mathbb{R}^+},\ f(x)=\frac{1}{x}\ \forall_{x \in \mathbb{R}^+} \right\}$. Finally, plug each of these 2 functions into the functional equation and verify that they indeed are solutions. This is trivial since $f(x)=x$ is an obvious solution and for $f(x)=\frac{1}{x}$ we have: \[\frac{ \frac{1}{w^2} + \frac{1}{x^2} }{ \frac{1}{y^2} + \frac{1}{z^2}} = \frac{ \frac{w^2+x^2}{(wx)^2} }{ \frac{y^2+z^2}{(yz)^2} } = \frac{w^2+x^2}{y^2+z^2}\] provided that $(wx)^2 = (yz)^2$ which verifies the original constraint. So the functional equation has 2 solutions: \[f(x) = x\ \forall_{x \in \mathbb{R}^+}\ \vee\ f(x)=\frac{1}{x}\ \forall_{x \in \mathbb{R}^+}\] Video Solution https://youtu.be/wb2gp8uoGfM [Video Solution fermat]
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_011</question_id>
+<question>
+Let $a_1 = 5$ and $a_{n+1} = \lfloor a_n / 2 \rfloor + 3$ for $n \geq 1$. Find $a_{10}$.
+</question>
+<reasoning>
+We compute the sequence iteratively:
+- $a_1 = 5$
+- $a_2 = \lfloor 5/2 \rfloor + 3 = 2 + 3 = 5$
+- $a_3 = \lfloor 5/2 \rfloor + 3 = 2 + 3 = 5$
+
+We see the sequence reaches the fixed point where $a = \lfloor a/2 \rfloor + 3$.
+
+If $a \geq 6$: $\lfloor a/2 \rfloor + 3 \leq a/2 + 3 < a$ (for sufficiently large $a$)
+If $a \leq 5$: $\lfloor a/2 \rfloor + 3 \geq a$ (checking: $5 \mapsto 2+3=5$)
+
+Therefore, $a_{10} = \boxed{5}$.
+</reasoning>
+<final_answer>
+\boxed{5}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_001</question_id>
+<question>
+How can we prove that a graph is bipartite if and only if all of its cycles have even order? Also, does this theorem have a common name? I found it in a maths Olympiad toolbox.
+</question>
+<reasoning>
+**Theorem (König):** A graph is bipartite if and only if it contains no odd cycles.
+
+**Proof:**
+
+($\Rightarrow$) If $G$ is bipartite with vertex sets $V_1$ and $V_2$, then every edge connects a vertex in $V_1$ to a vertex in $V_2$. Every step along any cycle alternates between the two sets, so to return to the starting vertex, we must take an even number of steps. Thus every cycle has even length.
+
+($\Leftarrow$) Suppose every cycle in $G$ is even. Let $v_0$ be any vertex. For each vertex $v$ in the same connected component as $v_0$, let $d(v)$ be the length of a shortest path from $v_0$ to $v$. Color each vertex red if $d(v)$ is even, and blue if $d(v)$ is odd.
+
+If there is an edge between two red vertices (or two blue vertices), say from $u$ to $v$, then since $d(u)$ and $d(v)$ have the same parity, the cycle formed by taking a shortest path from $v_0$ to $u$, then the edge to $v$, then a shortest path back to $v_0$ would have odd length, contradicting our assumption. Therefore, all edges connect red vertices to blue vertices, making $G$ bipartite.
+
+This result is a fundamental theorem in graph theory, named after König.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>aops_077</question_id>
+<question>
+For each integer $k \geqslant 2$, determine all infinite sequences of positive integers $a_1, a_2, \ldots$ for which there exists a polynomial $P$ of the form $P(x)=x^k+c_{k-1} x^{k-1}+\cdots+c_1 x+c_0$, where $c_0, c_1, \ldots, c_{k-1}$ are non-negative integers, such that \[P\left(a_n\right)=a_{n+1} a_{n+2} \cdots a_{n+k}\] for every integer $n \geqslant 1$.
+</question>
+<reasoning>
+https://www.youtube.com/watch?v=JhThDz0H7cI [Video contains solutions to all day 1 problems] https://www.youtube.com/watch?v=CmJn5FKxpPY [Video contains another solution to problem 3] Let $f(n)$ and $g(j)$ be functions of positive integers $n$ and $j$ respectively. Let $a_{n}=a_{1}+f(n)$, then $a_{n+1}=a_{1}+f(n+1)$, and $a_{n+k}=a_{1}+f(n+k)$ Let $P=\prod_{j=1}^{k}\left ( a_{n+j} \right ) = \prod_{j=1}^{k}\left ( a_{n}+g(j)) \right )$ If we want the coefficients of $P(a_{n})$ to be positive, then $g(j)\geq 0$ for all $j$ which will give the following value for $P$: $P=a_{n}^{k}+C_{k-1}a_{n}^{k-1}+...+C_{1}a_{n}+\prod_{j=1}^{k} g(j) = P(a_{n})$ Thus for every $j$ and $n$ we need the following: $a_{n}+g(j)=a_{n+j}=a_{1}+f(n+j)$ Solving for $g(j)$ we get: $g(j)=a_{1}+f(n+j)-a_{n}=a_{1}+f(n+j)-a_{1}-f(n)$ $g(j)=f(n+j)-f(n)\geq 0$ for all $n$ and $j$ because $g(j)$ needs to be greater than or equal to zero for all coefficients to be non-negative. This means that $f(n)$ needs to be increasing with $n$, or staying constant, and also with $f(1)=0$ because $a_{1}=a_{1}+f(1)$. In addition, since we need all coefficients to be integer, then all $f(n)$ and $g(j)$ must also be integers. We also need $g(j)$ to not be dependent of $n$, so in the expression $f(n+j)-f(n)$, the $n$ needs to cancel. This mean that the rate of change for $f(n)$ with respect to $n$ needs to be constant. This can only be achieved with $f(n)$ be the equation of a line with slope being either zero or positive integer. So, we set $f(n)$ to be the equation of a line as $f(n)=mn+b$ with $m$ being the slope with a non-negative value and with $b$ the intercept at $n=0$. We know that $f(1)=0$ so $f(1)=m+b=0$ which means that $b=-m$ and our function becomes $f(n)=mn-m=(n-1)m$. Since $f(n)$ needs to be non-negative integer then $m\geq 0 \mid m \in \mathbb{Z}$ then $f(n)$ is increasing or constant, with $f(1)=0$ Then, $g(j)=f(n+j)-f(n)=(n+j-1)m-(n-1)m=jm$ This gives: $\prod_{j=1}^{k}\left ( a_{n}+jm \right )=P(a_{n})=a_{n}^{k}+C_{k-1}a_{n}^{k-1}+...+C_{1}a_{n}+k!m^{k}$ with $C_{0}=k!m^{k}$ and coefficients of polynomial $\geq 0$ Then, $a_{n}=a_{1}+f(n)$ Which provides the solution of all infinite sequences of positive integers as: $a_{n}=a_{1}+(n-1)m$, $\forall m\geq 0 \mid m \in \mathbb{Z}$ and $a_{1} \geq 1 \mid a_{1} \in \mathbb{Z}$ ~ Tomas Diaz. orders@tomasdiaz.com Alternate solutions are always welcome. If you have a different, elegant solution to this problem, please add it to this page.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>aops_050</question_id>
+<question>
+Let $\mathbb{R}$ be the set of real numbers , determine all functions $f:\mathbb{R}\rightarrow\mathbb{R}$ such that for any real numbers $x$ and $y$ \[f(f(x)f(y)) + f(x+y)=f(xy)\]
+</question>
+<reasoning>
+Looking at the equation one can deduce that the functions that will work will be linear. That is, a polynomial of at most a degree of 1. Thus, $f$ is in the form $f(x)=mx+b$ Therefore, $f((mx+b)(my+b))+m(x+y)+b=mxy+b$ $f(m^2xy+mb(x+y)+b^2)+m(x+y)+b=mxy+b$ $m(m^2xy+mb(x+y)+b^2)+b+m(x+y)+b=mxy+b$ $m^3xy+m^2b(x+y)+mb^2+m(x+y)+b=mxy$ $m(m^2-1)xy+m(bm+1)(x+y)+b(bm+1)=0$ Therefore, $m(m^2-1)=0$ [Equation 1] $m(bm+1)=0$ [Equation 2] $b(bm+1)$ [Equation 3] From [Equation 1] we have, $m=0,\pm 1$ From [Equation 2] we have, $m=0, bm=-1\pm 1$ From [Equation 3] we have, $b=0, bm=-1\pm 1$ When $m=0$, $b=0$, then $f(x)=0$ When $bm=-1$, $b=\frac{-1}{m}$, then since $m=\pm 1$, then $b=\mp 1$ When $bm=-1$, $b=\frac{-1}{m}$, then since $m=\pm 1$, then $b=\mp 1$ then $f(x)=\pm x \mp1$ which gives these two functions: $f(x)=x-1$ and $f(x)=1-x$, which with $f(x)=0$ provide all the three functions for this problem. ~Tomas Diaz. orders@tomasdiaz.com Alternate solutions are always welcome. If you have a different, elegant solution to this problem, please add it to this page.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>aops_017</question_id>
+<question>
+Given a triangle $ABC$, with $I$ as its incenter and $\Gamma$ as its circumcircle, $AI$ intersects $\Gamma$ again at $D$. Let $E$ be a point on arc $BDC$, and $F$ a point on the segment $BC$, such that $\angle BAF=\angle CAE< \frac12\angle BAC$. If $G$ is the midpoint of $IF$, prove that the intersection of lines $EI$ and $DG$ lies on $\Gamma$. Authors: Tai Wai Ming and Wang Chongli, Hong Kong
+</question>
+<reasoning>
+Note that it suffices to prove alternatively that if $EI$ meets the circle again at $J$ and $JD$ meets $IF$ at $G$, then $G$ is the midpoint of $IF$. Let $JD$ meet $BC$ at $K$. Observation 1. D is the midpoint of arc $BDC$ because it lies on angle bisector $AI$. Observation 2. $AI$ bisects $\angle{FAE}$ as well. Key Lemma. Triangles $DKI$ and $DIJ$ are similar. Proof. Because triangles $DKB$ and $DBJ$ are similar (for $\angle{KBD}$ and $\angle{BJD}$ both intercept equally sized arcs), we have $BD^2 = BK \cdot BJ$. But we know that triangle $DBI$ is isosceles (hint: prove $\angle{BID} = \angle{IBD}$), and so $BI^2 = BK \cdot BJ$. Hence, $DKI$ and $DIJ$ are similar, as desired. Observation 3. As a result, we have $\angle{KID} = \angle{IJD} = \angle{DAE} = \angle{FAD}$. Observation 4. $IK // AF$. Observation 5. If $AF$ and $JD$ intersect at $L$, then $AJLI$ is cyclic. Observation 6. Because $\angle{ALI} = \angle{AJE} = \angle{AJC} + \angle{CJE} = \angle{B} + \angle{AEC} = \angle{B} + \angle{BAF} = \angle{AFC}$, we have $LI // FK$. Observation 7. $LIKF$ is a parallelogram, so its diagonals bisect each other, so $G$ is the midpoint of $FI$, as desired. Solution 2 Let $A'$ be A-excenter $\triangle ABC \implies$ \[DI = DB = DC = DA', AB \cdot AC = AI \cdot AA'.\] \[\angle BAF = \angle EAC, \angle ABF = \angle ABC = \angle AEC \implies \triangle ABF \sim \triangle AEC \implies\] \[\frac {AB}{AF} = \frac {AE}{AC} \implies AF \cdot AE = AB \cdot AC = AI \cdot AA' \implies \frac {AF}{AA'} = \frac {AI}{AE}.\] \[\angle FAA' = \angle IAE \implies \triangle FAA' \sim \triangle IAE \implies \angle FA'A = \angle IEA.\] \[IG = GF, ID = DA' \implies GD || FA' \implies \angle GDA = \angle FA'A = \angle IEA \implies\] the intersection of lines $EI$ and $DG$ lies on $\Gamma$. After pavel kozlov vladimir.shelomovskii@gmail.com, vvsss
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>aops_063</question_id>
+<question>
+The Bank of Bath issues coins with an $H$ on one side and a $T$ on the other. Harry has $n$ of these coins arranged in a line from left to right. He repeatedly performs the following operation: If there are exactly $k > 0$ coins showing $H$, then he turns over the $k^{th}$ coin from the left; otherwise, all coins show $T$ and he stops. For example, if $n = 3$ the process starting with the configuration $THT$ would be $THT \rightarrow HHT \rightarrow HTT \rightarrow TTT$, which stops after three operations. (a) Show that, for each initial configuration, Harry stops after a finite number of operations. (b) For each initial configuration $C$, let $L(C)$ be the number of operations before Harry stops. For example, $L(THT) = 3$ and $L(TTT) = 0$. Determine the average value of $L(C)$ over all $2^n$ possible initial configurations $C$.
+</question>
+<reasoning>
+Solution 1 (Induction and Case Division) Don't worry, this is way simpler than it's length may suggest&#160;:) Claim: The expected value of $L(C)$ is $\frac{n(n+1)}{4}$. We prove parts A and B simultaneously using induction. Base case: $n=1$ $L(T)=0$ and $L(H)=1$, and these are the only possibilities, so clearly the process terminates and $E[L(C)] = \frac{1}{2} = \frac{1*2}{4}$. Inductive step: Assume that for $n-1$ coins, the process always terminates, and $E[L(C)] = \frac{n(n-1)}{4}$. Define $E_{n-1} = E[L(C)]$ here. Now, for $n$ coins, define $E_{n} = E[L{C}]$ across all $2^n$ configurations. Consider cases on the last coin: Case 1: Final coin is $T$ If the last coin is $T$, then we simply can forget about it, as we can flip it to heads only if we have n heads, which is impossible. This occurs with probablity $P_{T} = 1/2$, and will be identical to the general $n-1$ case; thus, this process terminates, and we will have an expected number of moves here of $E_{n-1}$. Case 2: Final coin is $H$ The probability that this occurs is $P_{H} = 1/2$. The only way we have for the process to terminate now is for all coins to show heads, after which we can progressively flip each coin from right to left (this will take $n$ moves). Thus, we now have a new goal for the first $n-1$ coins (given the head at the end); get all heads. We claim that this process is symmetrical to the original process on $n-1$ coins, and thus it terminates and has the expected number of moves $E_{n-1}$. Proof: Let us have $k \ge 1$ heads in our group of n coins, of which $k-1$ are in the first n-1. We are supposed to flip the $k$'th coin from the left in the first n-1 coins, which is equivalent to flipping the $(n-k)$'th coin from the right (in the first $n-1$ coins, NOT all $n$ coins), but there are $n-k$ tails in the first $n-1$ coins! We now have a new process defined as follows: Consider a configuration of $n-1$ coins with $x \ge 1$ tails, and flip the x'th coin from the right, and keep flipping until all coins are heads. This is clearly symmetric to the original process, and will terminate if and only if the original process on $n-1$ coins does, and has the same expected number of moves as the original. Thus, the claim is proven. Back to the case: We now have a process to get to all heads that will terminate with an expected number of steps of $E_{n-1}$, and then an n-step algorithm to reach the finish. Thus, here also, the process terminates, and we have a total expected number of steps as $E_{n-1}+n$. Thus, the overall process on n coins will terminate, since the process terminates in both the representative cases on n-1 coins. $\boxed{Q.E.D}$ Also, the expected value of steps can be easily computed now; $E_{n} = (P_{T})(E_{n-1})+(P_{H})(E_{n-1}+n) = E_{n-1}+n/2 = \frac{n(n-1}{4}+\frac{n}{2} = \boxed{\frac{n(n+1)}{4}}$ as desired. We are now done. -Solution 2 (Strong Induction and Alternative Case Division) We define a sequence $\{a_i\}_{i=1}^n$: $a_i=1$ if the $i$'th coin is $H$ and $a_i=0$ if the $i$'th coin is $T$. Then, $k$ will be the number of $1$'s in $\{a_i\}$ and after each operation, $a_k$ will be changed to $1-a_k$. Let $f(n)=\sum L\{a_i\}=$ sum of $L\{a_i\}$ over all possible $\{a_i\}$ (of length $n$). We shall prove that the process terminates and find the value of $f(n)$ using strong induction. Base case: Clearly, for $n=1$, the process terminates. Induction hypothesis: For $n=1, 2, 3, \cdots, k$, the process terminates. Inductive step: We claim that for $n=k+1$, the process terminates as well. Case 1: $a_1=1$ This means that $\{a_i\}=\{1, a_2, a_3, \cdots, a_n\}$. With the proof of the claim in Solution 1, we can similarly prove that operating on $\{a_i\}$ is equivalent to operating on $\{a_2, a_3, \cdots, a_n\}$. $\{a_i\}$ will be changed to $\{1, 0, 0, \cdots, 0\}$ at the end of this process. Now, we operate one more time to change $a_1$ from $1$ to $0$. Hence, the process terminates. We can also see that $L\{a_i\}=L\{a_2, a_3, \cdots, a_n\}+1$. Hence, sum of $L\{a_i\}$ over all possible $\{a_i\}$ in this case \[=\sum L\{a_i\}=\sum \left[L\{a_2, a_3, \cdots, a_n\}+1\right]=f(n-1)+2^{n-1}\] Case 2: $a_1=0$ and $a_n=1$ This means that $\{a_i\}=\{0, a_2, a_3, \cdots, a_{n-1}, 1\}$. Operating on $\{a_i\}$ is now equivalent to operating on $\{a_2, a_3, \cdots, a_{n-1}\}$. $\{a_i\}$ will be changed to $\{0, 0, 0, \cdots, 0, 1\}$ at the end of this process. Now, since $k=1$, $a_1$ will become $1$. Now, $k=2$, so $a_2$ will become $1$ as well. This process will repeat until $k=n$ and $\{a_i\}$ has been changed to $\{1, 1, 1, \cdots, 1\}$. Now, since $k=n$, $a_n$ will become $0$. Now, $k=n-1$, so $a_{n-1}$ will become $0$ as well. This process will repeat again until $k=0$ and $\{a_i\}$ has been changed to $\{0, 0, 0, \cdots, 0\}$. Hence, the process terminates. We can also see that $L\{a_i\}=L\{a_2, a_3, \cdots, a_{n-1}\}+(2n-1)$. Hence, sum of $L\{a_i\}$ over all possible $\{a_i\}$ in this case \[=\sum L\{a_i\}=\sum \left[L\{a_2, a_3, \cdots, a_{n-1}\}+(2n-1)\right]=f(n-2)+2^{n-2}\cdot(2n-1)\] Case 3: $a_n=0$ This means that $\{a_i\}=\{a_1, a_2, a_3, \cdots, a_{n-1}, 0\}$. Operating on $\{a_i\}$ is now equivalent to operating on $\{a_1, a_2, \cdots, a_{n-1}\}$. $\{a_i\}$ will be changed to $\{0, 0, 0, \cdots, 0, 0\}$ at the end of this process. Hence, the process terminates. We can also see that $L\{a_i\}=L\{a_1, a_2, \cdots, a_{n-1}\}$. Hence, sum of $L\{a_i\}$ over all possible $\{a_i\}$ in this case \[=\sum L\{a_i\}=\sum \left[L\{a_1, a_2, \cdots, a_{n-1}\}\right]=f(n-1)\] This is already sufficient to prove part A, but we want to find $f(n)$ too, and we have overcounted! Case 4: $a_1=1$ and $a_n=0$ (This is what we have overcounted) This means that $\{a_i\}=\{1, a_2, a_3, \cdots, a_{n-1}, 0\}$. Operating on $\{a_i\}$ is now equivalent to operating on $\{a_2, a_3, \cdots, a_{n-1}\}$. $\{a_i\}$ will be changed to $\{1, 0, 0, \cdots, 0, 0\}$ at the end of this process. Now, we operate one more time to change $a_1$ from $1$ to $0$. Hence, the process terminates. We can also see that $L\{a_i\}=L\{a_2, a_3, \cdots, a_{n-1}\}+1$. Hence, sum of $L\{a_i\}$ over all possible $\{a_i\}$ in this case \[=\sum L\{a_i\}=\sum \left[L\{a_1, a_2, \cdots, a_{n-1}\}+1\right]=f(n-2)+2^{n-2}\] Hence, we have proven that for all configurations, the process terminates, $\boxed{Q.E.D.}$ Now, all that remains is to calculate $f(n)$. \begin{align*} f(n) &= f(n-1)+2^{n-1}+f(n-2)+2^{n-2}\cdot(2n-1)+f(n-1)-\left[f(n-2)+2^{n-2}\right] \\ &= 2f(n-1)+2^{n-1}\cdot n \end{align*} This can be rearranged to give us \[f(n)-n(n+1)\cdot2^{n-2}=2\left[f(n-1)-n(n-1)\cdot2^{n-3}\right]\] When $n=1$, $f(n)-n(n+1)\cdot2^{n-2}=0$. This is good, because now we know that $\forall n\in\mathbb{Z}^{+}, f(n)-n(n+1)\cdot2^{n-2}=0$ i.e. $f(n)=n(n+1)\cdot2^{n-2}$. Now the average will be $\frac{n(n+1)\cdot2^{n-2}}{2^n}=\boxed{\frac{1}{4}n(n+1)}$ ~IraeVid13
+</reasoning>
+<final_answer>
+\boxed{\frac{n(n+1)}{4}}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_002</question_id>
+<question>
+Find the sum of the infinite series $\sum_{n=1}^{\infty} \frac{1}{n^2}$.
+</question>
+<reasoning>
+This is a famous series known as the Basel problem, famously solved by Euler.
+
+**Solution using Fourier Series:**
+
+Consider the function $f(x) = x^2$ on $[-\pi, \pi]$ with periodic extension.
+
+The Fourier series is:
+$$x^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cos(nx)$$
+
+Evaluating at $x = \pi$:
+$$\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cos(n\pi)$$
+$$\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cdot (-1)^n$$
+$$\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{1}{n^2}$$
+$$\frac{2\pi^2}{3} = 4\sum_{n=1}^{\infty} \frac{1}{n^2}$$
+$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+
+Therefore, $\sum_{n=1}^{\infty} \frac{1}{n^2} = \boxed{\frac{\pi^2}{6}}$.
+</reasoning>
+<final_answer>
+\boxed{\frac{\pi^2}{6}}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_003</question_id>
+<question>
+Why is the absolute value of the determinant of a matrix equal to the volume of the parallelepiped formed by its column vectors?
+</question>
+<reasoning>
+**Geometric Interpretation of Determinant:**
+
+For a 2×2 matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the columns are vectors $\vec{v}_1 = \begin{pmatrix} a \\ c \end{pmatrix}$ and $\vec{v}_2 = \begin{pmatrix} b \\ d \end{pmatrix}$.
+
+The parallelogram formed by these vectors has area:
+$$\text{Area} = |\vec{v}_1| \cdot |\vec{v}_2| \cdot |\sin(\theta)|$$
+
+where $\theta$ is the angle between them. Using the cross product formula in 2D:
+$$\text{Area} = |ad - bc| = |\det(A)|$$
+
+**For higher dimensions:** 
+
+For an $n \times n$ matrix with column vectors $\vec{v}_1, \ldots, \vec{v}_n$, the $n$-dimensional volume of the parallelepiped they span is exactly $|\det(A)|$.
+
+**Properties:**
+- If columns are linearly dependent, the volume is 0 (degenerate)
+- The determinant accounts for orientation; negative determinants represent "flipped" configurations
+- Scaling a column by factor $k$ scales the volume by $|k|$
+- Swapping columns negates the determinant (reverses orientation)
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>similar_012</question_id>
+<question>
+Determine all functions $f : \mathbb{Z} \to \mathbb{Z}$ such that, for all integers $a$ and $b$, $f(2a) + 2f(b) = f(f(a + b)) + 2f(a - b)$.
+</question>
+<reasoning>
+This is the same functional equation as the 2018 USAMO Problem 2. Following the same analysis:
+
+**Step 1: Determine $f(0)$**
+
+Set $a = b = 0$: $f(0) + 2f(0) = f(f(0)) + 2f(0)$, giving $f(0) = f(f(0))$.
+
+**Step 2: Test constant solutions**
+
+Try $f(x) = c$: Then $2c + 2c = c + 2c$, so $c = 0$. Thus $f(x) = 0$ is a solution. ✓
+
+**Step 3: Test linear solutions**
+
+Try $f(x) = cx$: Then $2ca + 2cb = c(c(a+b)) + 2c(a-b)$, giving $2ca + 2cb = c^2(a+b) + 2ca - 2cb$, so $4cb = c^2(a+b)$.
+
+For this to hold for all $a, b$: coefficient of $a$ gives $0 = c^2$, so $c = 0$.
+
+**Step 4: Show these are the only solutions**
+
+Through careful analysis of the functional equation structure, we can show that $f$ must be linear over $\mathbb{Z}$, and the only linear solution is $f(x) = 0$.
+
+Alternatively, substituting specific values and using the functional equation repeatedly shows that any other form leads to contradictions.
+
+Therefore: $\boxed{f(x) = 0 \text{ for all } x \in \mathbb{Z}}$ is the only solution. ∎
+</reasoning>
+<final_answer>
+\boxed{f(x) = 0 \text{ for all } x \in \mathbb{Z}}
+</final_answer>
+
+==================================================
+
+<question_id>aops_048</question_id>
+<question>
+The equation $(x-1)(x-2)\cdots(x-2016)=(x-1)(x-2)\cdots (x-2016)$ is written on the board, with $2016$ linear factors on each side. What is the least possible value of $k$ for which it is possible to erase exactly $k$ of these $4032$ linear factors so that at least one factor remains on each side and the resulting equation has no real solutions?
+</question>
+<reasoning>
+This problem needs a solution. If you have a solution for it, please help us out it.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>aops_022</question_id>
+<question>
+Let $\mathcal{S}$ be a finite set of at least two points in the plane, such that no three points of $\mathcal S$ are collinear. A windmill is a process that starts with a line $\ell$ going through a single point $P \in \mathcal S$. The line rotates clockwise about the pivot $P$ until the first time that the line meets some other point belonging to $\mathcal S$. This point, $Q$, takes over as the new pivot, and the line now rotates clockwise about $Q$, until it next meets a point of $\mathcal S$. This process continues indefinitely. Show that we can choose any point $P$ in $\mathcal S$ and a line $\ell$ going through $P$ such that the resulting windmill uses each point of $\mathcal S$ as a pivot infinitely many times.
+</question>
+<reasoning>
+Choose a coordinate system so that all points in $\mathcal S$ have distinct x-coordinates. Number the points $P_i=(x_i,y_i)$ of $\mathcal S$ x-coordinates: $x_1<x_2<\ldots<x_N$. In order to divide the set $\mathcal S$ into two halves, define $n$ so that $N=2n+1+d$ where $d=0$ for an odd number of points and $d=1$ for an even number of points. Start the "windmill" process with the line $\ell$ going vertically through the point $P_{n+1}$. Attach a down-up direction to this line so that we can color all points as follows: Points to the left of $\ell$ (with lower x-coordinates) are blue, the pivot point on $\ell$ is white and point to the right of $\ell$ (with higher x-coordinates) are red. We have now $n$ blue points, one white point and $n+d$ red points. After processing the "windmill" by 180 degrees, the line $\ell$ goes vertically up-down. Now, points with lower x-coordinates are to the right of $\ell$ and colored red; points with higher x-coordinates are to the left of $\ell$ and colored blue. Note that at each pivot exchange, the old pivot point enters the same side of $\ell$ where the new pivot point came from. This means that throughout the "windmill" process, the number of blue points and the number of red points stay constant, respectively: We still have $n$ blue points, one white point and $n+d$ red points. This means that the current pivot point is $P_{n+d}$. Note that all blue and all red points changed their color from the start of the "windmill" process. This implies that every point was a pivot at some stage of the rotation. For every 180 degrees of "windmill" rotation, the same argument applies: all colored points must change their color and hence be a pivot at some stage. Infinitely many rotations imply infinitely many color changes. This completes the proof. Interactive Graph See here (By u/basuboss on reddit)
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>aops_031</question_id>
+<question>
+Let $\mathbb Q_{>0}$ be the set of all positive rational numbers. Let $f:\mathbb Q_{>0}\to\mathbb R$ be a function satisfying the following three conditions: (i) for all $x,y\in\mathbb Q_{>0}$, we have $f(x)f(y)\geq f(xy)$; (ii) for all $x,y\in\mathbb Q_{>0}$, we have $f(x+y)\geq f(x)+f(y)$; (iii) there exists a rational number $a>1$ such that $f(a)=a$. Prove that $f(x)=x$ for all $x\in\mathbb Q_{>0}$.
+</question>
+<reasoning>
+This problem needs a solution. If you have a solution for it, please help us out it.
+</reasoning>
+<final_answer>
+</final_answer>

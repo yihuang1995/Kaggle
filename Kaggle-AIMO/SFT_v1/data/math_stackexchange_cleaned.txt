@@ -1,0 +1,474 @@
+<question_id>mathse_001</question_id>
+<question>
+How can we prove that a graph is bipartite if and only if all of its cycles have even order? Also, does this theorem have a common name? I found it in a maths Olympiad toolbox.
+</question>
+<reasoning>
+**Theorem (König):** A graph is bipartite if and only if it contains no odd cycles.
+
+**Proof:**
+
+($\Rightarrow$) If $G$ is bipartite with vertex sets $V_1$ and $V_2$, then every edge connects a vertex in $V_1$ to a vertex in $V_2$. Every step along any cycle alternates between the two sets, so to return to the starting vertex, we must take an even number of steps. Thus every cycle has even length.
+
+($\Leftarrow$) Suppose every cycle in $G$ is even. Let $v_0$ be any vertex. For each vertex $v$ in the same connected component as $v_0$, let $d(v)$ be the length of a shortest path from $v_0$ to $v$. Color each vertex red if $d(v)$ is even, and blue if $d(v)$ is odd.
+
+If there is an edge between two red vertices (or two blue vertices), say from $u$ to $v$, then since $d(u)$ and $d(v)$ have the same parity, the cycle formed by taking a shortest path from $v_0$ to $u$, then the edge to $v$, then a shortest path back to $v_0$ would have odd length, contradicting our assumption. Therefore, all edges connect red vertices to blue vertices, making $G$ bipartite.
+
+This result is a fundamental theorem in graph theory, named after König.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_002</question_id>
+<question>
+Find the sum of the infinite series $\sum_{n=1}^{\infty} \frac{1}{n^2}$.
+</question>
+<reasoning>
+This is a famous series known as the Basel problem, famously solved by Euler.
+
+**Solution using Fourier Series:**
+
+Consider the function $f(x) = x^2$ on $[-\pi, \pi]$ with periodic extension.
+
+The Fourier series is:
+$$x^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cos(nx)$$
+
+Evaluating at $x = \pi$:
+$$\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cos(n\pi)$$
+$$\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cdot (-1)^n$$
+$$\pi^2 = \frac{\pi^2}{3} + 4\sum_{n=1}^{\infty} \frac{1}{n^2}$$
+$$\frac{2\pi^2}{3} = 4\sum_{n=1}^{\infty} \frac{1}{n^2}$$
+$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+
+Therefore, $\sum_{n=1}^{\infty} \frac{1}{n^2} = \boxed{\frac{\pi^2}{6}}$.
+</reasoning>
+<final_answer>
+\boxed{\frac{\pi^2}{6}}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_003</question_id>
+<question>
+Why is the absolute value of the determinant of a matrix equal to the volume of the parallelepiped formed by its column vectors?
+</question>
+<reasoning>
+**Geometric Interpretation of Determinant:**
+
+For a 2×2 matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the columns are vectors $\vec{v}_1 = \begin{pmatrix} a \\ c \end{pmatrix}$ and $\vec{v}_2 = \begin{pmatrix} b \\ d \end{pmatrix}$.
+
+The parallelogram formed by these vectors has area:
+$$\text{Area} = |\vec{v}_1| \cdot |\vec{v}_2| \cdot |\sin(\theta)|$$
+
+where $\theta$ is the angle between them. Using the cross product formula in 2D:
+$$\text{Area} = |ad - bc| = |\det(A)|$$
+
+**For higher dimensions:** 
+
+For an $n \times n$ matrix with column vectors $\vec{v}_1, \ldots, \vec{v}_n$, the $n$-dimensional volume of the parallelepiped they span is exactly $|\det(A)|$.
+
+**Properties:**
+- If columns are linearly dependent, the volume is 0 (degenerate)
+- The determinant accounts for orientation; negative determinants represent "flipped" configurations
+- Scaling a column by factor $k$ scales the volume by $|k|$
+- Swapping columns negates the determinant (reverses orientation)
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_004</question_id>
+<question>
+Evaluate the Gaussian integral: $\int_0^{\infty} e^{-x^2} dx$.
+</question>
+<reasoning>
+Let $I = \int_0^{\infty} e^{-x^2} dx$. We want to find $I$.
+
+Consider:
+$$I^2 = \left(\int_0^{\infty} e^{-x^2} dx\right) \left(\int_0^{\infty} e^{-y^2} dy\right) = \int_0^{\infty} \int_0^{\infty} e^{-(x^2 + y^2)} dx\, dy$$
+
+Converting to polar coordinates where $x^2 + y^2 = r^2$ and $dx\, dy = r\, dr\, d\theta$:
+$$I^2 = \int_0^{\pi/2} \int_0^{\infty} e^{-r^2} r\, dr\, d\theta$$
+
+Evaluating the inner integral using $u = r^2$, so $du = 2r\, dr$:
+$$\int_0^{\infty} e^{-r^2} r\, dr = \frac{1}{2} \int_0^{\infty} e^{-u} du = \frac{1}{2}$$
+
+Therefore:
+$$I^2 = \int_0^{\pi/2} \frac{1}{2} d\theta = \frac{1}{2} \cdot \frac{\pi}{2} = \frac{\pi}{4}$$
+
+Since $I > 0$:
+$$I = \int_0^{\infty} e^{-x^2} dx = \boxed{\frac{\sqrt{\pi}}{2}}$$
+</reasoning>
+<final_answer>
+\boxed{\frac{\sqrt{\pi}}{2}}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_005</question_id>
+<question>
+What is the number of ways to write 10 as a sum of positive integers (partition of 10)? For example: $10 = 5 + 5 = 5 + 3 + 2$, etc. (Order doesn't matter).
+</question>
+<reasoning>
+The partition function $p(n)$ counts the number of ways to write $n$ as a sum of positive integers where order doesn't matter.
+
+For $n = 10$, we enumerate all partitions:
+1. $10$
+2. $9 + 1$
+3. $8 + 2$
+4. $8 + 1 + 1$
+5. $7 + 3$
+6. $7 + 2 + 1$
+7. $7 + 1 + 1 + 1$
+8. $6 + 4$
+9. $6 + 3 + 1$
+10. $6 + 2 + 2$
+11. $6 + 2 + 1 + 1$
+12. $6 + 1 + 1 + 1 + 1$
+13. $5 + 5$
+14. $5 + 4 + 1$
+15. $5 + 3 + 2$
+16. $5 + 3 + 1 + 1$
+17. $5 + 2 + 2 + 1$
+18. $5 + 2 + 1 + 1 + 1$
+19. $5 + 1 + 1 + 1 + 1 + 1$
+20. $4 + 4 + 2$
+21. $4 + 4 + 1 + 1$
+22. $4 + 3 + 3$
+23. $4 + 3 + 2 + 1$
+24. $4 + 3 + 1 + 1 + 1$
+25. $4 + 2 + 2 + 2$
+26. $4 + 2 + 2 + 1 + 1$
+27. $4 + 2 + 1 + 1 + 1 + 1$
+28. $4 + 1 + 1 + 1 + 1 + 1 + 1$
+29. $3 + 3 + 3 + 1$
+30. $3 + 3 + 2 + 2$
+31. $3 + 3 + 2 + 1 + 1$
+32. $3 + 3 + 1 + 1 + 1 + 1$
+33. $3 + 2 + 2 + 2 + 1$
+34. $3 + 2 + 2 + 1 + 1 + 1$
+35. $3 + 2 + 1 + 1 + 1 + 1 + 1$
+36. $3 + 1 + 1 + 1 + 1 + 1 + 1 + 1$
+37. $2 + 2 + 2 + 2 + 2$
+38. $2 + 2 + 2 + 2 + 1 + 1$
+39. $2 + 2 + 2 + 1 + 1 + 1 + 1$
+40. $2 + 2 + 1 + 1 + 1 + 1 + 1 + 1$
+41. $2 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1$
+42. $1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1$
+
+Therefore, $p(10) = \boxed{42}$.
+</reasoning>
+<final_answer>
+\boxed{42}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_006</question_id>
+<question>
+Explain intuitively why the Fundamental Theorem of Calculus connects integration and differentiation.
+</question>
+<reasoning>
+The Fundamental Theorem of Calculus states: If $F$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then:
+$$\int_a^b F'(x)\, dx = F(b) - F(a)$$
+
+**Intuitive Explanation:**
+
+**Step 1: Riemann Sum Interpretation**
+
+The integral $\int_a^b F'(x)\, dx$ can be approximated by a Riemann sum:
+$$\int_a^b F'(x)\, dx \approx \sum_{i=1}^{n} F'(x_i^*) \Delta x_i$$
+
+where the interval is divided into subintervals of width $\Delta x_i$.
+
+**Step 2: Derivative as Rate of Change**
+
+By definition of the derivative:
+$$F'(x_i^*) \approx \frac{\Delta F_i}{\Delta x_i}$$
+
+where $\Delta F_i = F(x_i) - F(x_{i-1})$ is the change in $F$ over that subinterval.
+
+**Step 3: Telescoping Sum**
+
+Therefore:
+$$\sum_{i=1}^{n} F'(x_i^*) \Delta x_i \approx \sum_{i=1}^{n} \frac{\Delta F_i}{\Delta x_i} \cdot \Delta x_i = \sum_{i=1}^{n} \Delta F_i$$
+
+This is a telescoping sum:
+$$\sum_{i=1}^{n} \Delta F_i = (F(x_1) - F(x_0)) + (F(x_2) - F(x_1)) + \cdots + (F(x_n) - F(x_{n-1})) = F(x_n) - F(x_0) = F(b) - F(a)$$
+
+**Intuition:** The integral of the rate of change gives the total change. All the intermediate values cancel out, leaving only the endpoints.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_007</question_id>
+<question>
+Prove that $\sqrt{2}$ is irrational.
+</question>
+<reasoning>
+**Proof by Contradiction:**
+
+Assume $\sqrt{2}$ is rational. Then $\sqrt{2} = \frac{p}{q}$ where $p, q \in \mathbb{Z}$, $q \neq 0$, and $\gcd(p,q) = 1$ (the fraction is in lowest terms).
+
+Squaring both sides:
+$$2 = \frac{p^2}{q^2}$$
+$$p^2 = 2q^2$$
+
+This shows that $p^2$ is even, which means $p$ must be even. (If $p$ were odd, then $p^2$ would be odd.)
+
+Let $p = 2k$ for some integer $k$. Substituting:
+$$(2k)^2 = 2q^2$$
+$$4k^2 = 2q^2$$
+$$2k^2 = q^2$$
+
+This shows that $q^2$ is even, which means $q$ must be even.
+
+But now we have that both $p$ and $q$ are even, contradicting the assumption that $\gcd(p,q) = 1$.
+
+Therefore, our assumption that $\sqrt{2}$ is rational must be false. Thus $\sqrt{2}$ is irrational. ∎
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_008</question_id>
+<question>
+Find a closed form for $\sum_{k=0}^{n} k \binom{n}{k}$.
+</question>
+<reasoning>
+We evaluate $\sum_{k=0}^{n} k \binom{n}{k}$ using the binomial theorem.
+
+**Method: Differentiation**
+
+Recall the binomial theorem:
+$$(1 + x)^n = \sum_{k=0}^{n} \binom{n}{k} x^k$$
+
+Differentiate both sides with respect to $x$:
+$$n(1+x)^{n-1} = \sum_{k=0}^{n} k \binom{n}{k} x^{k-1}$$
+
+Setting $x = 1$:
+$$n(1+1)^{n-1} = \sum_{k=0}^{n} k \binom{n}{k}$$
+$$n \cdot 2^{n-1} = \sum_{k=0}^{n} k \binom{n}{k}$$
+
+Therefore: $\boxed{\sum_{k=0}^{n} k \binom{n}{k} = n \cdot 2^{n-1}}$
+
+**Verification for $n=3$:**
+$$\sum_{k=0}^{3} k \binom{3}{k} = 0 \cdot 1 + 1 \cdot 3 + 2 \cdot 3 + 3 \cdot 1 = 0 + 3 + 6 + 3 = 12 = 3 \cdot 2^2$$ ✓
+</reasoning>
+<final_answer>
+\boxed{\sum_{k=0}^{n} k \binom{n}{k} = n \cdot 2^{n-1}}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_009</question_id>
+<question>
+Prove that $n^5 - n$ is divisible by 30 for all integers $n$.
+</question>
+<reasoning>
+We need to show that $30 \mid (n^5 - n)$ for all $n \in \mathbb{Z}$.
+
+**Factorization:**
+$$n^5 - n = n(n^4 - 1) = n(n^2-1)(n^2+1) = n(n-1)(n+1)(n^2+1)$$
+
+Since $30 = 2 \times 3 \times 5$, we show divisibility by 2, 3, and 5 separately.
+
+**Divisibility by 2:**
+Among three consecutive integers $n-1, n, n+1$, at least one is even. So $2 \mid n(n-1)(n+1)$.
+
+**Divisibility by 3:**
+Among three consecutive integers $n-1, n, n+1$, exactly one is divisible by 3. So $3 \mid n(n-1)(n+1)$.
+
+**Divisibility by 5:**
+Consider $n \pmod{5}$:
+- If $n \equiv 0 \pmod{5}$: then $5 \mid n$
+- If $n \equiv \pm 1 \pmod{5}$: then $5 \mid (n^2 - 1)$
+- If $n \equiv \pm 2 \pmod{5}$: then $n^2 \equiv 4 \pmod{5}$, so $n^2 + 1 \equiv 0 \pmod{5}$
+
+In all cases, $5 \mid n(n-1)(n+1)(n^2+1)$.
+
+Since $\gcd(2,3,5) = 1$ and all three divide the expression, $30 \mid (n^5-n)$. ∎
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_010</question_id>
+<question>
+State and explain the Pigeonhole Principle with an example.
+</question>
+<reasoning>
+**Statement:** If $n$ objects are placed into $m$ containers and $n > m$, then at least one container must contain more than one object.
+
+**Formal Version:** Let $f: A \to B$ where $|A| > |B|$. Then $f$ is not injective (one-to-one).
+
+**Intuitive Explanation:**
+Imagine you have more pigeons than pigeonholes. When you place each pigeon into a hole, since there are more pigeons than holes, at least one hole must contain more than one pigeon.
+
+**Example 1: Pigeons in Holes**
+If you have 10 pigeons and 9 pigeonholes, at least one hole must contain at least 2 pigeons.
+
+**Example 2: Birthdays**
+In a group of 367 people, at least two must share the same birthday (since there are only 366 possible days). This is the Birthday Paradox.
+
+**Example 3: Modular Arithmetic**
+If we place 5 integers into 4 residue classes modulo 4, at least two integers must be congruent modulo 4.
+
+**Generalized Version:** If $n$ objects are placed into $m$ containers, at least one container contains at least $\lceil n/m \rceil$ objects.
+
+The pigeonhole principle is surprisingly powerful and appears in many proofs in combinatorics, number theory, and discrete mathematics.
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_011</question_id>
+<question>
+Find the sum: $\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots$
+</question>
+<reasoning>
+This is the alternating harmonic series.
+
+**Method: Taylor Series**
+
+Recall that $\ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots$ for $|x| \leq 1$ (with $x \neq -1$).
+
+Setting $x = 1$:
+$$\ln(2) = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots = \sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n}$$
+
+**Method: Abel's Theorem**
+
+The radius of convergence is 1. The series is alternating and the terms decrease to 0, so by the alternating series test, it converges.
+
+By Abel's theorem for power series, since $\sum_{n=1}^{\infty} (-1)^{n+1} \frac{x^n}{n}$ converges for $|x| < 1$ to $\ln(1+x)$, and the series converges at $x=1$, we have:
+$$\lim_{x \to 1^-} \sum_{n=1}^{\infty} (-1)^{n+1} \frac{x^n}{n} = \sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n}$$
+
+Therefore: $\boxed{\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n} = \ln(2)}$
+</reasoning>
+<final_answer>
+\boxed{\sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n} = \ln(2)}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_012</question_id>
+<question>
+Prove that the set of real numbers $\mathbb{R}$ is uncountable.
+</question>
+<reasoning>
+**Cantor's Diagonal Argument:**
+
+Suppose, for contradiction, that $\mathbb{R}$ is countable. Then there exists a bijection $f: \mathbb{N} \to \mathbb{R}$, meaning we can list all real numbers:
+$$r_1, r_2, r_3, \ldots$$
+
+Focus on the interval $(0,1)$. Write each real number in decimal form:
+$$r_1 = 0.a_{1,1}a_{1,2}a_{1,3}\cdots$$
+$$r_2 = 0.a_{2,1}a_{2,2}a_{2,3}\cdots$$
+$$r_3 = 0.a_{3,1}a_{3,2}a_{3,3}\cdots$$
+$$\vdots$$
+
+Now construct a new number $r = 0.b_1b_2b_3\cdots$ where each digit $b_i$ is chosen such that:
+$$b_i \neq a_{i,i}$$
+
+For example, if $a_{i,i} = 5$, let $b_i = 6$; otherwise let $b_i = 5$.
+
+**The Contradiction:**
+
+The number $r = 0.b_1b_2b_3\cdots$ is a real number in $(0,1)$. However, by construction:
+- $r$ differs from $r_1$ in the first decimal place
+- $r$ differs from $r_2$ in the second decimal place
+- $r$ differs from $r_3$ in the third decimal place
+- And so on...
+
+So $r$ is not in our list, contradicting the assumption that we could list all real numbers.
+
+**Conclusion:** Therefore, $\mathbb{R}$ is uncountable. ∎
+</reasoning>
+<final_answer>
+</final_answer>
+
+==================================================
+
+<question_id>mathse_013</question_id>
+<question>
+If a set $S$ has $n$ elements, how many elements does its power set $\mathcal{P}(S)$ have?
+</question>
+<reasoning>
+**Definition:** The power set $\mathcal{P}(S)$ is the set of all subsets of $S$.
+
+**Example:** If $S = \{1, 2, 3\}$, then:
+$$\mathcal{P}(S) = \{\emptyset, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}$$
+
+This has $2^3 = 8$ elements.
+
+**General Formula:** If $|S| = n$, then $|\mathcal{P}(S)| = 2^n$.
+
+**Proof:**
+
+For each element $x \in S$, when forming a subset of $S$, we must decide: is $x$ in this subset or not? There are 2 choices (yes or no) for each of the $n$ elements.
+
+Total number of subsets = $2 \times 2 \times \cdots \times 2$ ($n$ times) = $2^n$.
+
+**Alternative Proof by Counting:**
+The number of subsets of size $k$ is $\binom{n}{k}$.
+
+Total subsets:
+$$\sum_{k=0}^{n} \binom{n}{k} = 2^n$$
+
+(by the binomial theorem with $x = y = 1$)
+
+Therefore, $|\mathcal{P}(S)| = \boxed{2^n}$.
+</reasoning>
+<final_answer>
+\boxed{2^n}
+</final_answer>
+
+==================================================
+
+<question_id>mathse_014</question_id>
+<question>
+Solve the recurrence relation $a_n = 2a_{n-1} + 1$ with initial condition $a_1 = 1$.
+</question>
+<reasoning>
+**Method: Compute first few terms**
+
+- $a_1 = 1$
+- $a_2 = 2(1) + 1 = 3$
+- $a_3 = 2(3) + 1 = 7$
+- $a_4 = 2(7) + 1 = 15$
+- $a_5 = 2(15) + 1 = 31$
+
+Pattern: $a_n = 2^n - 1$
+
+**Verification by induction:**
+
+Base case: $a_1 = 2^1 - 1 = 1$ ✓
+
+Inductive step: Assume $a_k = 2^k - 1$. Then:
+$$a_{k+1} = 2a_k + 1 = 2(2^k - 1) + 1 = 2^{k+1} - 2 + 1 = 2^{k+1} - 1$$ ✓
+
+**Method: Solve directly**
+
+The recurrence is: $a_n = 2a_{n-1} + 1$
+
+This is a first-order linear recurrence. The homogeneous part $a_n = 2a_{n-1}$ has solution $a_n^{(h)} = C \cdot 2^n$.
+
+For a particular solution, try $a_n^{(p)} = k$ (constant). Then:
+$$k = 2k + 1 \implies k = -1$$
+
+General solution: $a_n = C \cdot 2^n - 1$
+
+Using $a_1 = 1$: $1 = C \cdot 2 - 1$, so $C = 1$.
+
+Therefore: $\boxed{a_n = 2^n - 1}$
+</reasoning>
+<final_answer>
+\boxed{a_n = 2^n - 1}
+</final_answer>

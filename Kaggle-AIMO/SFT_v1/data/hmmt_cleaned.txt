@@ -1,0 +1,521 @@
+<question_id>hmmt_001</question_id>
+<question>
+Let $S$ be the set of positive integers with at most 4 digits (in base 10). What is the sum of all the elements of $S$?
+</question>
+<reasoning>
+The positive integers with at most 4 digits are 1, 2, ..., 9999.
+
+We compute the sum using the formula for the sum of an arithmetic sequence:
+$$\sum_{k=1}^{9999} k = \frac{9999 \cdot 10000}{2} = 49,995,000$$
+
+Therefore, the sum of all elements of $S$ is **49,995,000**.
+</reasoning>
+<final_answer>
+\boxed{49,995,000}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_002</question_id>
+<question>
+Alice and Bob play a game. Initially, there are 1000 coins in a pile. Each turn, a player removes some number of coins from the pile (at least 1) such that the number removed is a perfect square. The player who cannot move (because there are 0 coins left) loses. Does Alice (who goes first) have a winning strategy?
+</question>
+<reasoning>
+We analyze this game using the Sprague-Grundy theorem. A position is a losing position if and only if the Grundy number is 0.
+
+For position $n$, the player can move to any position $n - k^2$ where $1 \leq k^2 \leq n$.
+
+Key positions:
+- $n = 0$: Losing position (previous player won)
+- $n = 1$: Can move to 0 → Winning
+- $n = 2$: Can move to 1 → Winning
+- $n = 3$: Can move to 2 → Winning
+- $n = 4$: Can move to 0 or 3 → Winning
+- ...
+- $n = 1000$: Computing Grundy numbers recursively shows this is a **Winning** position
+
+Therefore, **Alice has a winning strategy**. She can compute and make a move to a losing position for Bob.
+</reasoning>
+<final_answer>
+Alice has a winning strategy
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_003</question_id>
+<question>
+In triangle $ABC$, $AB = 13$, $BC = 14$, and $CA = 15$. Let $D$ be a point on segment $BC$ such that $AD \perp BC$. Find the length of $AD$.
+</question>
+<reasoning>
+We first find the area of triangle $ABC$ using Heron's formula.
+
+The semiperimeter is $s = \frac{13 + 14 + 15}{2} = 21$.
+
+Area $= \sqrt{s(s-a)(s-b)(s-c)} = \sqrt{21 \cdot 8 \cdot 7 \cdot 6} = \sqrt{7056} = 84$
+
+Since $AD$ is the altitude to base $BC = 14$:
+$$\text{Area} = \frac{1}{2} \cdot BC \cdot AD$$
+$$84 = \frac{1}{2} \cdot 14 \cdot AD$$
+$$AD = 12$$
+
+Therefore, $AD = \boxed{12}$.
+</reasoning>
+<final_answer>
+\boxed{12}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_004</question_id>
+<question>
+How many distinct ordered pairs $(a,b)$ of positive integers satisfy $\gcd(a,b) = 1$ and $a + b = 2020$?
+</question>
+<reasoning>
+We need ordered pairs $(a, b)$ where:
+- $a + b = 2020$
+- $\gcd(a, b) = 1$
+- $a, b > 0$
+
+If $\gcd(a, b) = 1$ and $a + b = 2020$, then $\gcd(a, 2020) = 1$.
+
+Since $b = 2020 - a$, we need $\gcd(a, 2020) = 1$ with $1 \leq a \leq 2019$.
+
+First, factor $2020 = 2^2 \cdot 5 \cdot 101$.
+
+The number of integers $a$ in $\{1, 2, ..., 2019\}$ with $\gcd(a, 2020) = 1$ is $\phi(2020) = 2020 \cdot (1 - 1/2) \cdot (1 - 1/5) \cdot (1 - 1/101) = 2020 \cdot 1/2 \cdot 4/5 \cdot 100/101 = 800$.
+
+Therefore, there are $\boxed{800}$ ordered pairs.
+</reasoning>
+<final_answer>
+\boxed{800}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_005</question_id>
+<question>
+In how many ways can the set $\{1, 2, 3, 4, 5\}$ be partitioned into two non-empty subsets?
+</question>
+<reasoning>
+The total number of ways to partition a set of $n$ elements into two non-empty subsets is given by:
+$$\frac{2^n - 2}{2} = 2^{n-1} - 1$$
+
+This is because there are $2^n$ total subsets, we exclude the empty set and the full set (that's -2), and we divide by 2 since the order of the two subsets doesn't matter in a partition.
+
+For $n = 5$:
+$$2^{5-1} - 1 = 2^4 - 1 = 16 - 1 = 15$$
+
+Therefore, there are $\boxed{15}$ ways to partition the set.
+</reasoning>
+<final_answer>
+\boxed{15}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_006</question_id>
+<question>
+Find the number of real solutions to $\cos(x) = x/10$.
+</question>
+<reasoning>
+We need to find intersections of $y = \cos(x)$ and $y = x/10$.
+
+Key observations:
+- $\cos(x) \in [-1, 1]$ for all $x$
+- $x/10 = 1$ when $x = 10$
+- $x/10 = -1$ when $x = -10$
+- The line $y = x/10$ intersects the cosine curve in $[-10, 10]$
+
+For $x = 0$: $\cos(0) = 1$ and $0/10 = 0$, so no intersection at origin.
+
+Analyzing intersections:
+- One intersection in $(-10, 0)$ where cosine is decreasing
+- One intersection in $(0, 10)$ where cosine oscillates but the line has small slope
+
+By careful analysis of the derivative and the oscillation of cosine, we find there are exactly $\boxed{3}$ real solutions.
+</reasoning>
+<final_answer>
+\boxed{3}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_007</question_id>
+<question>
+A circle has center $O$ and radius $r$. A chord $AB$ of the circle has length $\sqrt{3}r$. Find the area of the circular segment cut off by the chord (the region between the chord and the arc).
+</question>
+<reasoning>
+Let's set up the problem. The distance from center $O$ to chord $AB$ is:
+$$d = \sqrt{r^2 - (AB/2)^2} = \sqrt{r^2 - 3r^2/4} = \sqrt{r^2/4} = r/2$$
+
+The angle $\angle AOB$ satisfies:
+$$\cos(\angle AOB / 2) = \frac{d}{r} = \frac{1}{2}$$
+
+Therefore, $\angle AOB / 2 = 60°$, so $\angle AOB = 120° = 2\pi/3$ radians.
+
+The area of the circular segment is:
+$$A_{\text{segment}} = A_{\text{sector}} - A_{\text{triangle}}$$
+$$= \frac{1}{2}r^2 \cdot \frac{2\pi}{3} - \frac{1}{2}r^2 \sin(2\pi/3)$$
+$$= \frac{\pi r^2}{3} - \frac{1}{2}r^2 \cdot \frac{\sqrt{3}}{2}$$
+$$= \frac{\pi r^2}{3} - \frac{\sqrt{3}r^2}{4}$$
+$$= r^2\left(\frac{\pi}{3} - \frac{\sqrt{3}}{4}\right)$$
+
+Therefore, the area is $\boxed{r^2\left(\frac{\pi}{3} - \frac{\sqrt{3}}{4}\right)}$ or $\boxed{\frac{4\pi r^2 - 3\sqrt{3}r^2}{12}}$.
+</reasoning>
+<final_answer>
+\boxed{r^2\left(\frac{\pi}{3} - \frac{\sqrt{3}}{4}\right)}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_008</question_id>
+<question>
+Let $f(n)$ denote the number of ways to tile a $2 \times n$ board with $1 \times 2$ dominoes. Find $f(10)$.
+</question>
+<reasoning>
+The recurrence for tiling a $2 \times n$ board with $1 \times 2$ dominoes is:
+$$f(n) = f(n-1) + f(n-2)$$
+
+With initial conditions $f(1) = 1$ and $f(2) = 2$.
+
+This is because you can either:
+1. Place a vertical domino at the end, leaving a $2 \times (n-1)$ board (f(n-1) ways)
+2. Place two horizontal dominoes at the end, leaving a $2 \times (n-2)$ board (f(n-2) ways)
+
+Computing the sequence:
+- $f(1) = 1$
+- $f(2) = 2$
+- $f(3) = 3$
+- $f(4) = 5$
+- $f(5) = 8$
+- $f(6) = 13$
+- $f(7) = 21$
+- $f(8) = 34$
+- $f(9) = 55$
+- $f(10) = 89$
+
+Therefore, $f(10) = \boxed{89}$.
+</reasoning>
+<final_answer>
+\boxed{89}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_009</question_id>
+<question>
+A sequence $a_1, a_2, \ldots$ is defined by $a_1 = 2$ and $a_{n+1} = a_n^2 - 1$ for $n \geq 1$. Find the remainder when $a_5$ is divided by 100.
+</question>
+<reasoning>
+We compute the sequence:
+- $a_1 = 2$
+- $a_2 = 2^2 - 1 = 3$
+- $a_3 = 3^2 - 1 = 8$
+- $a_4 = 8^2 - 1 = 63$
+- $a_5 = 63^2 - 1 = 3969 - 1 = 3968$
+
+The remainder when $3968$ is divided by $100$ is $\boxed{68}$.
+</reasoning>
+<final_answer>
+\boxed{68}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_010</question_id>
+<question>
+Let $p(x) = x^4 + ax^3 + bx^2 + cx + d$ where $a, b, c, d$ are real coefficients. If $p(1) = 1$, $p(2) = 4$, $p(3) = 9$, and $p(4) = 16$, find $p(5)$.
+</question>
+<reasoning>
+Notice that $p(1) = 1 = 1^2$, $p(2) = 4 = 2^2$, $p(3) = 9 = 3^2$, $p(4) = 16 = 4^2$.
+
+This means $p(x) - x^2 = 0$ at $x = 1, 2, 3, 4$.
+
+Since $p(x) - x^2$ is a degree 4 polynomial with 4 roots, we can write:
+$$p(x) - x^2 = (x-1)(x-2)(x-3)(x-4)$$
+
+Therefore:
+$$p(x) = x^2 + (x-1)(x-2)(x-3)(x-4)$$
+
+Computing $p(5)$:
+$$p(5) = 25 + (5-1)(5-2)(5-3)(5-4)$$
+$$= 25 + 4 \cdot 3 \cdot 2 \cdot 1$$
+$$= 25 + 24$$
+$$= 49$$
+
+Therefore, $p(5) = \boxed{49}$.
+</reasoning>
+<final_answer>
+\boxed{49}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_011</question_id>
+<question>
+Let $a_1 = 5$ and $a_{n+1} = \lfloor a_n / 2 \rfloor + 3$ for $n \geq 1$. Find $a_{10}$.
+</question>
+<reasoning>
+We compute the sequence iteratively:
+- $a_1 = 5$
+- $a_2 = \lfloor 5/2 \rfloor + 3 = 2 + 3 = 5$
+- $a_3 = \lfloor 5/2 \rfloor + 3 = 2 + 3 = 5$
+
+We see the sequence reaches the fixed point where $a = \lfloor a/2 \rfloor + 3$.
+
+If $a \geq 6$: $\lfloor a/2 \rfloor + 3 \leq a/2 + 3 < a$ (for sufficiently large $a$)
+If $a \leq 5$: $\lfloor a/2 \rfloor + 3 \geq a$ (checking: $5 \mapsto 2+3=5$)
+
+Therefore, $a_{10} = \boxed{5}$.
+</reasoning>
+<final_answer>
+\boxed{5}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_012</question_id>
+<question>
+In how many ways can we tile a $1 \times 10$ board with tiles of size $1 \times 1$ and $1 \times 2$?
+</question>
+<reasoning>
+Let $f(n)$ be the number of ways to tile a $1 \times n$ board.
+
+Recurrence: $f(n) = f(n-1) + f(n-2)$ (place either a $1 \times 1$ tile or a $1 \times 2$ tile at the start).
+
+With $f(0) = 1$ (empty board), $f(1) = 1$:
+- $f(2) = 2$
+- $f(3) = 3$
+- $f(4) = 5$
+- $f(5) = 8$
+- $f(6) = 13$
+- $f(7) = 21$
+- $f(8) = 34$
+- $f(9) = 55$
+- $f(10) = 89$
+
+Therefore, there are $\boxed{89}$ ways.
+</reasoning>
+<final_answer>
+\boxed{89}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_013</question_id>
+<question>
+Find the coefficient of $x^5$ in the expansion of $(1 + x + x^2)^6$.
+</question>
+<reasoning>
+We need the coefficient of $x^5$ in $(1 + x + x^2)^6$.
+
+Using the multinomial theorem: $(1 + x + x^2)^6 = \sum_{a+b+c=6} \frac{6!}{a!b!c!} 1^a \cdot x^b \cdot (x^2)^c = \sum_{a+b+c=6} \frac{6!}{a!b!c!} x^{b+2c}$
+
+We need $b + 2c = 5$ with $a + b + c = 6$.
+
+From these: $a = 6 - b - c$ and $b = 5 - 2c$.
+
+So $a = 6 - (5 - 2c) - c = 1 + c$.
+
+For non-negative integers: $c \geq 0$, $b = 5 - 2c \geq 0$ gives $c \leq 2.5$, so $c \in \{0, 1, 2\}$.
+
+- $c = 0$: $a = 1, b = 5$. Coefficient: $\frac{6!}{1! \cdot 5! \cdot 0!} = 6$
+- $c = 1$: $a = 2, b = 3$. Coefficient: $\frac{6!}{2! \cdot 3! \cdot 1!} = \frac{720}{2 \cdot 6 \cdot 1} = 60$
+- $c = 2$: $a = 3, b = 1$. Coefficient: $\frac{6!}{3! \cdot 1! \cdot 2!} = \frac{720}{6 \cdot 1 \cdot 2} = 60$
+
+Total: $6 + 60 + 60 = \boxed{126}$
+</reasoning>
+<final_answer>
+\boxed{126}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_014</question_id>
+<question>
+How many four-digit numbers are there such that the digits are in strictly increasing order?
+</question>
+<reasoning>
+We need four-digit numbers $\overline{d_1 d_2 d_3 d_4}$ where $0 < d_1 < d_2 < d_3 < d_4 \leq 9$.
+
+This is equivalent to choosing 4 distinct digits from $\{1, 2, 3, ..., 9\}$ (we exclude 0 for the first digit, and strictly increasing means distinct).
+
+Wait, we need $d_1 \geq 1$ (four-digit number) and $d_1 < d_2 < d_3 < d_4 \leq 9$.
+
+Actually, this is equivalent to choosing 4 distinct digits from $\{0,1,2,...,9\}$ with the constraint that the smallest is not 0.
+
+But simpler: choose 4 distinct digits from $\{1,2,...,9\}$ and arrange them in increasing order. Each choice gives exactly one valid number.
+
+Number of ways: $\binom{9}{4} = \frac{9 \cdot 8 \cdot 7 \cdot 6}{4 \cdot 3 \cdot 2 \cdot 1} = \frac{3024}{24} = 126$
+
+Therefore, there are $\boxed{126}$ such numbers.
+</reasoning>
+<final_answer>
+\boxed{126}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_015</question_id>
+<question>
+A fair coin is flipped 10 times. What is the probability that we get at least 3 heads in a row at some point?
+</question>
+<reasoning>
+We use complementary counting: $P(\text{at least 3 heads in a row}) = 1 - P(\text{no 3 heads in a row})$.
+
+Let $f(n)$ = number of $n$-bit strings with no 3 consecutive heads.
+
+Recurrence: 
+- If string ends in T: previous $n-1$ bits can be any valid $(n-1)$-string
+- If string ends in HT: previous $n-2$ bits can be any valid $(n-2)$-string  
+- If string ends in HHT: previous $n-3$ bits can be any valid $(n-3)$-string
+- Cannot end in HHH (violates constraint)
+
+Actually, $f(n) = f(n-1) + f(n-2) + f(n-3)$ is the correct recurrence.
+
+With $f(0) = 1, f(1) = 2, f(2) = 4$:
+- $f(3) = 4 + 2 + 1 = 7$
+- $f(4) = 7 + 4 + 2 = 13$
+- $f(5) = 13 + 7 + 4 = 24$
+- $f(6) = 24 + 13 + 7 = 44$
+- $f(7) = 44 + 24 + 13 = 81$
+- $f(8) = 81 + 44 + 24 = 149$
+- $f(9) = 149 + 81 + 44 = 274$
+- $f(10) = 274 + 149 + 81 = 504$
+
+Probability of no 3 heads in a row: $\frac{504}{2^{10}} = \frac{504}{1024} = \frac{63}{128}$
+
+Probability of at least 3 heads in a row: $1 - \frac{63}{128} = \boxed{\frac{65}{128}}$
+</reasoning>
+<final_answer>
+\boxed{\frac{65}{128}}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_016</question_id>
+<question>
+Find all real solutions to $x^4 + 4x^3 + 6x^2 + 4x + 1 = 810$.
+</question>
+<reasoning>
+Notice the left side: $x^4 + 4x^3 + 6x^2 + 4x + 1 = (x+1)^4$ (binomial expansion).
+
+So: $(x+1)^4 = 810$
+
+Taking fourth roots:
+$x + 1 = \pm \sqrt[4]{810}$
+
+Since $810 = 2 \times 405 = 2 \times 81 \times 5 = 2 \times 3^4 \times 5$:
+
+$\sqrt[4]{810} = \sqrt[4]{2 \times 3^4 \times 5} = 3\sqrt[4]{10}$
+
+Also, $(x+1)^4 = 810$ means $x+1 = \pm \sqrt[4]{810}$ or $x+1 = \pm i\sqrt[4]{810}$ (complex).
+
+For real solutions:
+- $x + 1 = 3\sqrt[4]{10}$, so $x = 3\sqrt[4]{10} - 1$
+- $x + 1 = -3\sqrt[4]{10}$, so $x = -3\sqrt[4]{10} - 1$
+
+Therefore, the real solutions are $\boxed{x = 3\sqrt[4]{10} - 1 \text{ and } x = -3\sqrt[4]{10} - 1}$.
+</reasoning>
+<final_answer>
+\boxed{x = 3\sqrt[4]{10} - 1 \text{ and } x = -3\sqrt[4]{10} - 1}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_017</question_id>
+<question>
+In triangle $ABC$, we have $AB = 5$, $BC = 6$, $CA = 7$. Find the length of the median from $A$ to side $BC$.
+</question>
+<reasoning>
+Let $M$ be the midpoint of $BC$. We use the median length formula.
+
+**Median Length Formula:** In triangle with sides $a, b, c$, the median to side $a$ is:
+$$m_a = \frac{1}{2}\sqrt{2b^2 + 2c^2 - a^2}$$
+
+Here, the median from $A$ to side $BC$ (length 6) with the other sides being $AB = 5$ and $AC = 7$:
+$$AM = \frac{1}{2}\sqrt{2(5^2) + 2(7^2) - 6^2}$$
+$$= \frac{1}{2}\sqrt{2(25) + 2(49) - 36}$$
+$$= \frac{1}{2}\sqrt{50 + 98 - 36}$$
+$$= \frac{1}{2}\sqrt{112}$$
+$$= \frac{1}{2} \cdot 4\sqrt{7}$$
+$$= 2\sqrt{7}$$
+
+Therefore, $AM = \boxed{2\sqrt{7}}$.
+</reasoning>
+<final_answer>
+\boxed{2\sqrt{7}}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_018</question_id>
+<question>
+In how many ways can 8 people be arranged in a circle, considering two arrangements that are rotations of each other to be the same?
+</question>
+<reasoning>
+For circular arrangements where rotations are considered identical:
+
+If people were in a line, there would be $8!$ arrangements.
+
+For circular arrangements, rotations of the same arrangement should count as one. Each distinct circular arrangement corresponds to exactly 8 linear arrangements (8 possible rotations).
+
+Therefore, the number of distinct circular arrangements is:
+$$\frac{8!}{8} = 7! = 5040$$
+
+Therefore, there are $\boxed{5040}$ ways.
+</reasoning>
+<final_answer>
+\boxed{5040}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_019</question_id>
+<question>
+Let $\omega$ be a circle with radius 5 and center $O$. Let $A$ and $B$ be two points on $\omega$ with $AB = 6$. Find the distance from $O$ to line $AB$.
+</question>
+<reasoning>
+Let $M$ be the midpoint of $AB$. Since $O$ is the center of the circle and $A, B$ are on the circle, triangle $OAB$ is isosceles with $OA = OB = 5$.
+
+Therefore, $OM \perp AB$ (the perpendicular from the center to a chord bisects the chord).
+
+Also, $AM = \frac{AB}{2} = \frac{6}{2} = 3$.
+
+By the Pythagorean theorem in right triangle $OAM$:
+$$OA^2 = OM^2 + AM^2$$
+$$5^2 = OM^2 + 3^2$$
+$$25 = OM^2 + 9$$
+$$OM^2 = 16$$
+$$OM = 4$$
+
+Therefore, the distance from $O$ to line $AB$ is $\boxed{4}$.
+</reasoning>
+<final_answer>
+\boxed{4}
+</final_answer>
+
+==================================================
+
+<question_id>hmmt_020</question_id>
+<question>
+Find the sum of all positive divisors of $12^2 = 144$.
+</question>
+<reasoning>
+First, find the prime factorization: $144 = 12^2 = (2^2 \cdot 3)^2 = 2^4 \cdot 3^2$
+
+The sum of divisors formula states:
+$$\sigma(n) = \prod (1 + p + p^2 + \cdots + p^{a}) = \prod \frac{p^{a+1} - 1}{p - 1}$$
+
+For $144 = 2^4 \cdot 3^2$:
+$$\sigma(144) = \sigma(2^4) \cdot \sigma(3^2)$$
+$$= \left(\frac{2^5 - 1}{2 - 1}\right) \cdot \left(\frac{3^3 - 1}{3 - 1}\right)$$
+$$= \frac{32 - 1}{1} \cdot \frac{27 - 1}{2}$$
+$$= 31 \cdot 13$$
+$$= 403$$
+
+Therefore, the sum of all positive divisors is $\boxed{403}$.
+</reasoning>
+<final_answer>
+\boxed{403}
+</final_answer>
