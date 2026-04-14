@@ -1,0 +1,204 @@
+W0412 15:38:43.117000 197681 torch/distributed/run.py:851] 
+W0412 15:38:43.117000 197681 torch/distributed/run.py:851] *****************************************
+W0412 15:38:43.117000 197681 torch/distributed/run.py:851] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 15:38:43.117000 197681 torch/distributed/run.py:851] *****************************************
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank1]:     main(args)
+[rank1]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank1]:     model = load_reference_model(args.base_model, device)
+[rank1]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank1]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank1]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank1]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank1]:     idx_hi = (blk >> 4).to(torch.long)
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 1 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197853 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank7]:     main(args)
+[rank7]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank7]:     model = load_reference_model(args.base_model, device)
+[rank7]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank7]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank7]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank7]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank7]:     idx_hi = (blk >> 4).to(torch.long)
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 7 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197859 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank6]:     main(args)
+[rank6]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank6]:     model = load_reference_model(args.base_model, device)
+[rank6]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank6]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank6]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank6]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank6]:     idx_hi = (blk >> 4).to(torch.long)
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 6 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197858 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank4]:     main(args)
+[rank4]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank4]:     model = load_reference_model(args.base_model, device)
+[rank4]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank4]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank4]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank4]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank4]:     idx_hi = (blk >> 4).to(torch.long)
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 4 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197856 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank3]:     main(args)
+[rank3]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank3]:     model = load_reference_model(args.base_model, device)
+[rank3]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank3]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank3]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank3]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank3]:     idx_hi = (blk >> 4).to(torch.long)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 3 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197855 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank2]:     main(args)
+[rank2]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank2]:     model = load_reference_model(args.base_model, device)
+[rank2]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank2]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank2]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank2]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank2]:     idx_hi = (blk >> 4).to(torch.long)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 2 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197854 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank5]:     main(args)
+[rank5]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank5]:     model = load_reference_model(args.base_model, device)
+[rank5]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank5]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank5]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank5]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank5]:     idx_hi = (blk >> 4).to(torch.long)
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 5 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Process 197857 has 39.66 GiB memory in use. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+W0412 15:39:07.200000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197862 closing signal SIGTERM
+W0412 15:39:07.201000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197864 closing signal SIGTERM
+W0412 15:39:07.201000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197865 closing signal SIGTERM
+W0412 15:39:07.201000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197866 closing signal SIGTERM
+W0412 15:39:07.201000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197867 closing signal SIGTERM
+W0412 15:39:07.201000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197868 closing signal SIGTERM
+W0412 15:39:07.201000 197681 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197869 closing signal SIGTERM
+E0412 15:39:10.034000 197681 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 1 (pid: 197863) of binary: /home/yihuang/venv-gptoss-ref/bin/python3
+Traceback (most recent call last):
+  File "/home/yihuang/venv-gptoss-ref/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+eval_native.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 0 (local_rank: 0)
+  exitcode  : -15 (pid: 197862)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197862
+[2]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 2 (local_rank: 2)
+  exitcode  : -15 (pid: 197864)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197864
+[3]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 197865)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[4]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 197866)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[5]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 5 (local_rank: 5)
+  exitcode  : -15 (pid: 197867)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197867
+[6]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 197868)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[7]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 197869)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-12_15:39:07
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 197863)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

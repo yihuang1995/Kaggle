@@ -1,0 +1,12 @@
+# Training data
+**/*.jsonl
+
+# Model checkpoints & weights
+**/*.pt
+**/*.bin
+**/*.safetensors
+
+# Python artifacts
+__pycache__/
+*.pyc
+.DS_Store

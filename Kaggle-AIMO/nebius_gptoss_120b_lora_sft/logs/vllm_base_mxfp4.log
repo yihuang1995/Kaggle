@@ -1,0 +1,278 @@
+INFO 04-12 16:16:59 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:16:59 [api_server.py:1977] vLLM API server version 0.11.2
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:16:59 [utils.py:253] non-default args: {'model': '/home/yihuang/models/gpt-oss-120b', 'trust_remote_code': True, 'max_model_len': 8192, 'quantization': 'mxfp4', 'served_model_name': ['baseline_vllm'], 'tensor_parallel_size': 8, 'gpu_memory_utilization': 0.92, 'kv_cache_dtype': 'fp8_e4m3'}
+[1;36m(APIServer pid=215678)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:16:59 [model.py:631] Resolved architecture: GptOssForCausalLM
+[1;36m(APIServer pid=215678)[0;0m ERROR 04-12 16:16:59 [config.py:307] Error retrieving safetensors: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/yihuang/models/gpt-oss-120b'. Use `repo_type` argument if needed., retrying 1 of 2
+[1;36m(APIServer pid=215678)[0;0m ERROR 04-12 16:17:01 [config.py:305] Error retrieving safetensors: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/home/yihuang/models/gpt-oss-120b'. Use `repo_type` argument if needed.
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:17:01 [model.py:1968] Downcasting torch.float32 to torch.bfloat16.
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:17:01 [model.py:1745] Using max model len 8192
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:17:01 [cache.py:180] Using fp8 data type to store kv cache. It reduces the GPU memory footprint and boosts the performance. Meanwhile, it may cause accuracy drop without a proper scaling factor.
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:17:02 [scheduler.py:216] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[1;36m(APIServer pid=215678)[0;0m INFO 04-12 16:17:02 [config.py:272] Overriding max cuda graph capture size to 1024 for performance.
+[1;36m(EngineCore_DP0 pid=215963)[0;0m INFO 04-12 16:17:08 [core.py:93] Initializing a V1 LLM engine (v0.11.2) with config: model='/home/yihuang/models/gpt-oss-120b', speculative_config=None, tokenizer='/home/yihuang/models/gpt-oss-120b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=8192, download_dir=None, load_format=auto, tensor_parallel_size=8, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=mxfp4, enforce_eager=False, kv_cache_dtype=fp8_e4m3, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='openai_gptoss', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=baseline_vllm, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'use_inductor': None, 'compile_sizes': [], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512, 528, 544, 560, 576, 592, 608, 624, 640, 656, 672, 688, 704, 720, 736, 752, 768, 784, 800, 816, 832, 848, 864, 880, 896, 912, 928, 944, 960, 976, 992, 1008, 1024], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {}, 'max_cudagraph_capture_size': 1024, 'local_cache_dir': None}
+[1;36m(EngineCore_DP0 pid=215963)[0;0m WARNING 04-12 16:17:08 [multiproc_executor.py:869] Reducing Torch parallelism from 64 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=6 local_rank=6 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=5 local_rank=5 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=7 local_rank=7 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+INFO 04-12 16:17:20 [parallel_state.py:1208] world_size=8 rank=4 local_rank=4 distributed_init_method=tcp://127.0.0.1:41899 backend=nccl
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+INFO 04-12 16:17:21 [pynccl.py:111] vLLM is using nccl==2.27.5
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 6 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 6, EP rank 6
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 5 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 5, EP rank 5
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 0 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 4 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 4, EP rank 4
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 3 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 2 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 7 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 7, EP rank 7
+INFO 04-12 16:17:24 [parallel_state.py:1394] rank 1 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(Worker_TP0 pid=216254)[0;0m INFO 04-12 16:17:25 [gpu_model_runner.py:3259] Starting to load model /home/yihuang/models/gpt-oss-120b...
+[1;36m(Worker_TP7 pid=216261)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP5 pid=216259)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP7 pid=216261)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP2 pid=216256)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP5 pid=216259)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP2 pid=216256)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP3 pid=216257)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP3 pid=216257)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP0 pid=216254)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP0 pid=216254)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP6 pid=216260)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP6 pid=216260)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP4 pid=216258)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP4 pid=216258)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP7 pid=216261)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP7 pid=216261)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP5 pid=216259)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP5 pid=216259)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP5 pid=216259)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP7 pid=216261)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP5 pid=216259)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP7 pid=216261)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP2 pid=216256)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP2 pid=216256)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP2 pid=216256)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP2 pid=216256)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP3 pid=216257)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP3 pid=216257)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP3 pid=216257)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP3 pid=216257)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP1 pid=216255)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:196] MXFP4 linear layer is not implemented - falling back to UnquantizedLinearMethod.
+[1;36m(Worker_TP1 pid=216255)[0;0m WARNING 04-12 16:17:25 [mxfp4.py:208] MXFP4 attention layer is not implemented. Skipping quantization for this layer.
+[1;36m(Worker_TP6 pid=216260)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP6 pid=216260)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP6 pid=216260)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP6 pid=216260)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP0 pid=216254)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP0 pid=216254)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP0 pid=216254)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP0 pid=216254)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP4 pid=216258)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP4 pid=216258)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP4 pid=216258)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP4 pid=216258)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP1 pid=216255)[0;0m INFO 04-12 16:17:25 [cuda.py:418] Valid backends: ['FLASH_ATTN', 'TRITON_ATTN']
+[1;36m(Worker_TP1 pid=216255)[0;0m INFO 04-12 16:17:25 [cuda.py:427] Using FLASH_ATTN backend.
+[1;36m(Worker_TP1 pid=216255)[0;0m INFO 04-12 16:17:25 [layer.py:342] Enabled separate cuda stream for MoE shared_experts
+[1;36m(Worker_TP1 pid=216255)[0;0m INFO 04-12 16:17:25 [mxfp4.py:141] Using Marlin backend
+[1;36m(Worker_TP0 pid=216254)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/15 [00:00<?, ?it/s]
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743] WorkerProc failed to start.
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743] Traceback (most recent call last):
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 715, in worker_main
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     worker = WorkerProc(*args, **kwargs)
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 555, in __init__
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     self.worker.load_model()
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 273, in load_model
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     self.model_runner.load_model(eep_scale_up=eep_scale_up)
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 3276, in load_model
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     self.model = model_loader.load_model(
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]                  ^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/model_loader/base_loader.py", line 55, in load_model
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     self.load_weights(model, model_config)
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/model_loader/default_loader.py", line 300, in load_weights
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     loaded_weights = model.load_weights(
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]                      ^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/models/gpt_oss.py", line 738, in load_weights
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     return loader.load_weights(weights, mapper=self.hf_to_vllm_mapper)
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 332, in load_weights
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     autoloaded_weights = set(self._load_module("", self.module, weights))
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 286, in _load_module
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     yield from self._load_module(
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 259, in _load_module
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     loaded_params = module_load_weights(weights)
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/models/gpt_oss.py", line 643, in load_weights
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     return self._load_weights_other(
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/model_executor/models/gpt_oss.py", line 575, in _load_weights_other
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743]     param.copy_(weight)
+[1;36m(Worker_TP7 pid=216261)[0;0m ERROR 04-12 16:17:26 [multiproc_executor.py:743] RuntimeError: The size of tensor a (3072) must match the size of tensor b (2880) at non-singleton dimension 1
+[1;36m(Worker_TP7 pid=216261)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP3 pid=216257)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP2 pid=216256)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP5 pid=216259)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP6 pid=216260)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP0 pid=216254)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP0 pid=216254)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/15 [00:00<?, ?it/s]
+[1;36m(Worker_TP0 pid=216254)[0;0m 
+[1;36m(Worker_TP4 pid=216258)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[1;36m(Worker_TP1 pid=216255)[0;0m INFO 04-12 16:17:26 [multiproc_executor.py:702] Parent process exited, terminating worker
+[rank0]:[W412 16:17:27.513586720 ProcessGroupNCCL.cpp:1524] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842] EngineCore failed to start.
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842] Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 833, in run_engine_core
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 606, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     super().__init__(
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     self.model_executor = executor_class(vllm_config)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 96, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     super().__init__(vllm_config)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     self._init_executor()
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 171, in _init_executor
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 653, in wait_for_ready
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842]     raise e from None
+[1;36m(EngineCore_DP0 pid=215963)[0;0m ERROR 04-12 16:17:29 [core.py:842] Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+[1;36m(EngineCore_DP0 pid=215963)[0;0m Process EngineCore_DP0:
+[1;36m(EngineCore_DP0 pid=215963)[0;0m Traceback (most recent call last):
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     self.run()
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     self._target(*self._args, **self._kwargs)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 846, in run_engine_core
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     raise e
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 833, in run_engine_core
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     engine_core = EngineCoreProc(*args, **kwargs)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 606, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     super().__init__(
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 102, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     self.model_executor = executor_class(vllm_config)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 96, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     super().__init__(vllm_config)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 101, in __init__
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     self._init_executor()
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 171, in _init_executor
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     self.workers = WorkerProc.wait_for_ready(unready_workers)
+[1;36m(EngineCore_DP0 pid=215963)[0;0m                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(EngineCore_DP0 pid=215963)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 653, in wait_for_ready
+[1;36m(EngineCore_DP0 pid=215963)[0;0m     raise e from None
+[1;36m(EngineCore_DP0 pid=215963)[0;0m Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+[1;36m(APIServer pid=215678)[0;0m Traceback (most recent call last):
+[1;36m(APIServer pid=215678)[0;0m   File "<frozen runpy>", line 198, in _run_module_as_main
+[1;36m(APIServer pid=215678)[0;0m   File "<frozen runpy>", line 88, in _run_code
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 2096, in <module>
+[1;36m(APIServer pid=215678)[0;0m     uvloop.run(run_server(args))
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/uvloop/__init__.py", line 96, in run
+[1;36m(APIServer pid=215678)[0;0m     return __asyncio.run(
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+[1;36m(APIServer pid=215678)[0;0m     return runner.run(main)
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+[1;36m(APIServer pid=215678)[0;0m     return self._loop.run_until_complete(task)
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/uvloop/__init__.py", line 48, in wrapper
+[1;36m(APIServer pid=215678)[0;0m     return await main
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 2024, in run_server
+[1;36m(APIServer pid=215678)[0;0m     await run_server_worker(listen_address, sock, args, **uvicorn_kwargs)
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 2043, in run_server_worker
+[1;36m(APIServer pid=215678)[0;0m     async with build_async_engine_client(
+[1;36m(APIServer pid=215678)[0;0m   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+[1;36m(APIServer pid=215678)[0;0m     return await anext(self.gen)
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 195, in build_async_engine_client
+[1;36m(APIServer pid=215678)[0;0m     async with build_async_engine_client_from_engine_args(
+[1;36m(APIServer pid=215678)[0;0m   File "/usr/lib/python3.12/contextlib.py", line 210, in __aenter__
+[1;36m(APIServer pid=215678)[0;0m     return await anext(self.gen)
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 236, in build_async_engine_client_from_engine_args
+[1;36m(APIServer pid=215678)[0;0m     async_llm = AsyncLLM.from_vllm_config(
+[1;36m(APIServer pid=215678)[0;0m                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/utils/func_utils.py", line 116, in inner
+[1;36m(APIServer pid=215678)[0;0m     return fn(*args, **kwargs)
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 203, in from_vllm_config
+[1;36m(APIServer pid=215678)[0;0m     return cls(
+[1;36m(APIServer pid=215678)[0;0m            ^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 133, in __init__
+[1;36m(APIServer pid=215678)[0;0m     self.engine_core = EngineCoreClient.make_async_mp_client(
+[1;36m(APIServer pid=215678)[0;0m                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 121, in make_async_mp_client
+[1;36m(APIServer pid=215678)[0;0m     return AsyncMPClient(*client_args)
+[1;36m(APIServer pid=215678)[0;0m            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 808, in __init__
+[1;36m(APIServer pid=215678)[0;0m     super().__init__(
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 469, in __init__
+[1;36m(APIServer pid=215678)[0;0m     with launch_core_engines(vllm_config, executor_class, log_stats) as (
+[1;36m(APIServer pid=215678)[0;0m   File "/usr/lib/python3.12/contextlib.py", line 144, in __exit__
+[1;36m(APIServer pid=215678)[0;0m     next(self.gen)
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 907, in launch_core_engines
+[1;36m(APIServer pid=215678)[0;0m     wait_for_engine_startup(
+[1;36m(APIServer pid=215678)[0;0m   File "/home/yihuang/venv/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 964, in wait_for_engine_startup
+[1;36m(APIServer pid=215678)[0;0m     raise RuntimeError(
+[1;36m(APIServer pid=215678)[0;0m RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+/usr/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

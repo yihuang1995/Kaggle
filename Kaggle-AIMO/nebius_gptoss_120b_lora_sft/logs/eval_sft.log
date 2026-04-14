@@ -1,0 +1,109 @@
+W0412 15:38:43.104000 197685 torch/distributed/run.py:851] 
+W0412 15:38:43.104000 197685 torch/distributed/run.py:851] *****************************************
+W0412 15:38:43.104000 197685 torch/distributed/run.py:851] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0412 15:38:43.104000 197685 torch/distributed/run.py:851] *****************************************
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/yihuang/nebius_training/eval_native.py", line 315, in <module>
+[rank0]:     main(args)
+[rank0]:   File "/home/yihuang/nebius_training/eval_native.py", line 257, in main
+[rank0]:     model = load_reference_model(args.base_model, device)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 166, in load_reference_model
+[rank0]:     loaded_tensor = load_hf_checkpoint_tensor(checkpoint_reader, name)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/yihuang/nebius_training/sft_train_reference_lora.py", line 227, in load_hf_checkpoint_tensor
+[rank0]:     return checkpoint_reader._get_mxfp4_tensor(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/yihuang/gpt-oss/gpt_oss/torch/weights.py", line 108, in _get_mxfp4_tensor
+[rank0]:     idx_hi = (blk >> 4).to(torch.long)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 79.18 GiB of which 1016.31 MiB is free. Including non-PyTorch memory, this process has 38.51 GiB memory in use. Process 197862 has 39.66 GiB memory in use. Of the allocated memory 37.01 GiB is allocated by PyTorch, and 44.78 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[rank0]:[W412 15:39:05.052433310 ProcessGroupNCCL.cpp:1575] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+W0412 15:39:07.983000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197853 closing signal SIGTERM
+W0412 15:39:07.984000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197854 closing signal SIGTERM
+W0412 15:39:07.984000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197855 closing signal SIGTERM
+W0412 15:39:07.984000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197856 closing signal SIGTERM
+W0412 15:39:07.985000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197857 closing signal SIGTERM
+W0412 15:39:07.985000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197858 closing signal SIGTERM
+W0412 15:39:07.985000 197685 torch/distributed/elastic/multiprocessing/api.py:1012] Sending process 197859 closing signal SIGTERM
+E0412 15:39:10.368000 197685 torch/distributed/elastic/multiprocessing/api.py:986] failed (exitcode: 1) local_rank: 0 (pid: 197852) of binary: /home/yihuang/venv-gptoss-ref/bin/python3
+Traceback (most recent call last):
+  File "/home/yihuang/venv-gptoss-ref/bin/torchrun", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 362, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/run.py", line 990, in main
+    run(args)
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/run.py", line 981, in run
+    elastic_launch(
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 170, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yihuang/venv-gptoss-ref/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 317, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+eval_native.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 1 (local_rank: 1)
+  exitcode  : -15 (pid: 197853)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197853
+[2]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 2 (local_rank: 2)
+  exitcode  : -15 (pid: 197854)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197854
+[3]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 3 (local_rank: 3)
+  exitcode  : -15 (pid: 197855)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197855
+[4]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 4 (local_rank: 4)
+  exitcode  : -15 (pid: 197856)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197856
+[5]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 5 (local_rank: 5)
+  exitcode  : -15 (pid: 197857)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197857
+[6]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 6 (local_rank: 6)
+  exitcode  : -15 (pid: 197858)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197858
+[7]:
+  time      : 2026-04-12_15:39:10
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 7 (local_rank: 7)
+  exitcode  : -15 (pid: 197859)
+  error_file: <N/A>
+  traceback : Signal 15 (SIGTERM) received by PID 197859
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-12_15:39:07
+  host      : computeinstance-e00vn27ba2sgh4sgah
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 197852)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

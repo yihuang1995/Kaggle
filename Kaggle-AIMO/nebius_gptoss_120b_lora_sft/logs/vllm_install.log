@@ -1,0 +1,7 @@
+Using Python 3.12.3 environment at: venv
+  × No solution found when resolving dependencies:
+  ╰─▶ Because there is no version of torch==2.9.0.dev20250804+cu128 and
+      vllm==0.10.1+gptoss depends on torch==2.9.0.dev20250804+cu128, we can
+      conclude that vllm==0.10.1+gptoss cannot be used.
+      And because you require vllm==0.10.1+gptoss, we can conclude that your
+      requirements are unsatisfiable.
